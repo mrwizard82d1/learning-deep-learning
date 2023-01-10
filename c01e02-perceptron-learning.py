@@ -1,7 +1,5 @@
 import random
 
-from ldl import c01
-
 
 def show_learning(w):
     """Print the current weights"""
@@ -28,6 +26,26 @@ w = [0.2, -0.6, 0.25]  # initialize to some "random" values
 # Print initial weights
 show_learning(w)
 
+
+def compute_output(w, x):
+    """
+    Compute the output of the perceptron with weights, `w` and vector, `x`.
+
+    Note that the length of the vectors, `w` and `x` must both be identically equal to `n + 1` where `n` is the
+    number of actual inputs (excluding the "special", $x_{0}$, component).
+
+    Args:
+        w: The weights for the calculation.
+        x: The vector whose output is to be calculated. (Note that `$x_{0}$` is identically 1.)
+
+    Returns:
+        The computed output of the perceptron.
+    """
+
+    z = sum([x[i] * w[i] for i in range(len(w))])
+    return -1 if z < 0 else 1
+
+
 # Perceptron training loop.
 all_correct = False
 while not all_correct:
@@ -36,7 +54,7 @@ while not all_correct:
     for i in index_list:
         x = x_train[i]
         y = y_train[i]
-        p_out = c01.compute_output(w, x)  # Perceptron function
+        p_out = compute_output(w, x)  # Perceptron function
 
         if y != p_out:  # If "wrong," update weights
             for j in range(0, len(w)):
