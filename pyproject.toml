@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "learning-deep-learning"
+version = "0.1.0"
+description = ""
+authors = ["laj <larry.jones@reveal-energy.com>"]
+readme = "README.md"
+packages = [{include = "learning_deep_learning"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pytest = "^7.2.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
