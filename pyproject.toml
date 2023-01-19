@@ -10,6 +10,7 @@ packages = [{include = "learning_deep_learning"}]
 python = "^3.10"
 pytest = "^7.2.0"
 matplotlib = "^3.6.2"
+ipython = "^8.8.0"
 
 
 [build-system]
